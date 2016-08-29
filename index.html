@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Shower Presentation Engine</title>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
+</head>
+<body class="shower list">
+	<header class="caption">
+		<h1>ООП</h1>
+		<p>Анатолий Налимов</p>
+	</header>
+	<section class="slide" id="cover">
+		<h2>Объектно-ориентированный анализ и шаблоны проектирования</h2>
+		<p>Анатолий Налимов</p>
+		<img src="pictures/earth-1280x800-planet-space-10121.jpg" alt="" class="cover">
+		<!--
+			To apply styles to the certain slides
+			set slide ID to get needed elements
+			-->
+		<style>
+			#cover h2 {
+				margin:30px 0 0;
+				color:#FFF;
+				text-align:center;
+				font-size:50px;
+				}
+			#cover p {
+				margin:10px 0 0;
+				text-align:center;
+				color:#FFF;
+				font-style:italic;
+				font-size:20px;
+				}
+				#cover p a {
+					color:#FFF;
+					}
+		</style>
+	</section>
+	<section class="slide">
+		<h2>Разработка компьютерных систем</h2>
+		<ul>
+			<li>Постановка задачи это идея описанная на человеческом языке</li>
+			<li>Результатом разработки является код</li>
+			<li>Объектно ориентированный подход:</li>
+			<ul>
+				<li>Устойчивость</li>
+				<li>Поддерживаемость</li>
+				<li>Борьба со сложностью</li>
+				<li>Возможность повторного использования кода</li>
+			</ul>
+		</ul>
+	</section>
+	<section class="slide">
+		<h2>Пример</h2>
+		<ul>
+			<li>Поиск космических аппаратов на марсе по фотографиям</li>
+			<li>Клиентская часть (frontend)</li>
+			<li>Название: AstroCrowd</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h2>Use cases (прецеденты)</h2>
+		<p>Как использование системы обеспечивает ощутимый для пользователя результат?</p>
+		<p><b>Неправильно:</b> авторизованным пользователям доступна функциональность системы</p>
+		<p><b style="color: darkgreen;">Правильно:</b> пользователь может авторизоваться в системе для того чтобы получить доступ к ее функциям</p>
+	</section>
+	<section class="slide">
+		<h2>AstroCrowd use cases</h2>
+		<ol>
+			<li>Пользователь авторизуется в системе, после этого ему становятся доступны все ее функции</li>
+			<li>Используя систему пользователь загружает фотографию с сервера,
+				пытается определить видно ли на фотографии место посадки космического аппарата
+				и сохраняет свое решение</li>
+			<li>Пользователь может просмотреть условия лицензионного соглашения</li>
+			<li>Пользователь может просмотреть информацию о проекте и организаторах</li>
+		</ol>
+	</section>
+	<section class="slide use-case-long">
+		<h2>Подробно главный use case</h2>
+		<ol>
+			<li class="top">Используя систему пользователь загружает фотографию с сервера
+				<ul>
+					<li>Если система определяет сбой во время загрузки фотографии она информирует об этом пользователя</li>
+				</ul>
+			</li>
+			<li class="top">Пользователь принимает решение есть ли на фотографии следы космического аппарата
+				<ul>
+					<li>Если пользователь нашел что-то система предлагает ему отметить на фотографии заинтересовавшие его области и прикрепить к решению текстовое описание</li>
+				</ul>
+			</li>
+			<li class="top">Система сохраняет решение пользователя для этой фотографии на сервере
+				<ul>
+					<li>Если система определяет сбой во время сохранения решения она информирует об этом пользователя</li>
+				</ul>
+			</li>
+		</ol>
+		<style>
+			.use-case-long {
+				line-height: 37px;
+				font-size: 22px;
+				}
+		</style>
+	</section>
+	<section class="slide">
+		<h2>Модель предметной области</h2>
+		<ul>
+			<li>Синтаксический анализ:
+				<ul>
+					<li>Существительное — предмет или лицо, «кто?» «что?»</li>
+					<li>Глагол — действие предмета, «что делает?», «что сделает?»</li>
+					<li>Прилагательное — признак предмета, «какой?», «чей?»</li>
+				</ul>
+			</li>
+		</ul>
+	</section>
+	<section class="slide use-case-long">
+		<h2>Предметная область на основе use case</h2>
+		<ol>
+			<li class="top">Используя систему <b class="highlighted">пользователь</b> загружает <b class="highlighted">фотографию</b> с <b class="highlighted">сервера</b>
+				<ul>
+					<li>Если система определяет <b>сбой</b> во <b>время</b> загрузки фотографии она информирует об этом пользователя</li>
+				</ul>
+			</li>
+			<li class="top">Пользователь принимает <b class="highlighted">решение</b> есть ли на фотографии <b>следы космического аппарата</b>
+				<ul>
+					<li>Если пользователь нашел что-то система предлагает ему отметить на фотографии заинтересовавшие его <b class="highlighted">области</b> и прикрепить к решению <b>текстовое описание</b></li>
+				</ul>
+			</li>
+			<li class="top">Система сохраняет решение пользователя для этой фотографии на сервере
+				<ul>
+					<li>Если система определяет сбой во время сохранения решения она информирует об этом пользователя</li>
+				</ul>
+			</li>
+		</ol>
+		<style>
+			.use-case-long .highlighted {
+				color: purple;
+				}
+		</style>
+	</section>
+	<section class="slide">
+		<h2>Предметная область AstroCrowd</h2>
+		<img src="pictures/AstroCrowd-objects-model.svg" style="width: 80%; margin-top: 50px;" />
+	</section>
+	<section class="slide">
+		<h2>Добавление ассоциаций</h2>
+		<ul>
+			<li>Ассоциация — это связь между объектами предметной области,
+				отражающая некоторое значимое и полезное отношение между ними</li>
+			<li>Признаки значимости:
+				<ul>
+					<li>знания об этой ассоциации нужно сохранять в течении некоторого периода времени</li>
+					<li>А содержится в В, А является частью В, А знает о В, ...</li>
+				</ul>
+			</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h2>Пример ассоциации</h2>
+		<img src="pictures/AstroCrowd-objects-model-links-ex1.svg" style="width: 80%; margin-top: 50px;" />
+	</section>
+	<section class="slide">
+		<h2>Предметная область AstroCrowd</h2>
+		<img src="pictures/AstroCrowd-objects-model-links-2.svg" style="width: 80%; margin-top: 50px;" />
+	</section>
+	<!--
+		To hide progress bar from entire presentation
+		just remove “progress” element.
+		-->
+	<div class="progress"></div>
+	<script src="shower/shower.min.js"></script>
+	<!-- Copyright © 2015 Yours Truly, Famous Inc. -->
+	<!-- Photos by John Carey, fiftyfootshadows.net -->
+</body>
+</html>
